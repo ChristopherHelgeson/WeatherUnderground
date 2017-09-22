@@ -34,13 +34,13 @@ namespace WeatherUndergroundAPI.Controllers
             return View();
         }
 
-        public ActionResult Weather(string zip)
+        public ActionResult ByZip(string zip)
         {
             //int zipcode = 45243;
 
             WeatherData weatherJSON = new WeatherData();
 
-            JObject x = weatherJSON.CreateObject(zip);
+            JObject x = weatherJSON.CreateObjectByZip(zip);
 
             string[] locationInfo = weatherJSON.GetLocationInfo(x);
             ViewBag.LocationInfo = locationInfo;
@@ -48,7 +48,22 @@ namespace WeatherUndergroundAPI.Controllers
             string[] weatherInfo = weatherJSON.GetLocationWeather(x);
             ViewBag.WeatherInfo = weatherInfo;
 
-            return View();
+            return View("Weather");
+        }
+
+        public ActionResult ByCityState(string city, string state)
+        {
+            WeatherData weatherJSON = new WeatherData();
+
+            JObject x = weatherJSON.CreateObjectByCityState(city, state);
+
+            string[] locationInfo = weatherJSON.GetLocationInfo(x);
+            ViewBag.LocationInfo = locationInfo;
+
+            string[] weatherInfo = weatherJSON.GetLocationWeather(x);
+            ViewBag.WeatherInfo = weatherInfo;
+
+            return View("Weather");
         }
     }
 }
