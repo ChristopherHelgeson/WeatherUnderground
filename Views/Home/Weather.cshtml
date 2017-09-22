@@ -1,0 +1,26 @@
+﻿
+@{
+    ViewBag.Title = "Weather";
+}
+<a href="http://www.weatherunderground.com" target="_blank">
+    <img id="WUlogo" src="~/Content/Images/wundergroundLogo_4c_horz.jpg" />
+</a>
+
+<h2>Current Weather for @ViewBag.LocationInfo[0]</h2>
+<h3>@ViewBag.LocationInfo[4]</h3>
+<h3>Latitude: @ViewBag.LocationInfo[1]</h3>
+<h3>Longitude: @ViewBag.LocationInfo[2]</h3>
+<h3>Elevation: @ViewBag.LocationInfo[3]</h3>
+<br />
+<div>
+    <p>Weather: @ViewBag.WeatherInfo[0]</p>
+    <img src="@ViewBag.WeatherInfo[6]"/>
+    <br /><br />
+    <p>Temperature: @ViewBag.WeatherInfo[1]</p>
+    <p>Dewpoint: @ViewBag.WeatherInfo[2]</p>
+    <p>Relative Humidity: @ViewBag.WeatherInfo[3]</p>
+    <p>Wind from the @ViewBag.WeatherInfo[4]</p>
+    <p>Pressure: @ViewBag.WeatherInfo[5]</p>
+</div>
+<br />
+
